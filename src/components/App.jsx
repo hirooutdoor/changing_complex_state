@@ -10,7 +10,7 @@ function App() {
   const [text, setText] = useState("Hello");
 
   function handleChange(event) {
-    const { value, name } = event.target;
+    const { name, value } = event.target;
 
     setContact((prevValue) => {
       if (name === "fName") {
