@@ -7,6 +7,8 @@ function App() {
     email: ""
   });
 
+  const [text, setText] = useState("Hello");
+
   function handleChange(event) {
     const { value, name } = event.target;
 
@@ -33,13 +35,19 @@ function App() {
     });
   }
 
+  function handleSubmit(event) {
+    setText("Welcome,");
+
+    event.preventDefault();
+  }
+
   return (
     <div className="container">
       <h1>
-        Hello {contact.fName} {contact.lName}
+        {text} {contact.fName} {contact.lName}!
       </h1>
       <p>{contact.email}</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           name="fName"
           placeholder="First Name"
@@ -58,7 +66,7 @@ function App() {
           onChange={handleChange}
           value={contact.email}
         />
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
